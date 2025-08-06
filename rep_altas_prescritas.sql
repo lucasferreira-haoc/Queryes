@@ -66,12 +66,5 @@ SELECT
     dt_solic_alta,
     cd_setor_atendimento,
     ds_setor_atendimento
-FROM (
-    SELECT
-        dados_unificados.*,
-        ROW_NUMBER() OVER(PARTITION BY nr_atendimento ORDER BY dt_registro DESC) AS rn
-    FROM
-        dados_unificados
-)
-WHERE
-    rn = 1
+FROM
+    dados_unificados
